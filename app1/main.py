@@ -11,6 +11,7 @@ while True:
             file = open("todos.txt", 'r')
             todos = file.readlines()
 
+
             todos.append(todo)
 
             file = open('todos.txt', 'w')
@@ -20,8 +21,10 @@ while True:
             file = open('todos.txt', 'r')
             todos = file.readlines()
             file.close()
+
             for index, item in enumerate(todos):
-                row = f"{index}:{item}"
+                item = item.strip("\n")
+                row = f"{index + 1}: {item}"
                 print(row)
         case 'edit':
             number = int(input('enter the number of the todo to edit'))
